@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+</head>
+<style>
+ header
+ {
+   background-color: bisque;
+   display: flex;
+   justify-content: space-between;
+ }
+ header h1
+ {
+   margin-left: 20px;
+   margin-top: 20px;
+ }
+ .ok
+ {
+   margin: 20px;
+   padding: 20px 0;
+ }
+.insertproduct{
+  margin: 20px;
+  width: 300px;
+  height: 30vh;
+  text-align: center;
+  
+}
+.content{
+  display: flex;
+  margin: 10px;
+}
+body
+{
+  background-image: url(https://st.quantrimang.com/photos/image/2020/07/16/Hinh-nen-mau-hong-28.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<body>
+<header>
+  <div>
+    <h1>ATN Fashion Manager</h1>
+  </div>
+  <div class="ok">
+    <form action="/search" method="post">
+        Name: <input type="text" name="txtSearch"/>
+        <input type="submit" value="Search">
+    </form>
+</div>
+</header>
+
+<div class="content">
+  <div class="insertproduct">
+    <form action="/insert" method="post">
+    Name <input type="text" name="txtName">
+    <br>
+    Price <input type="text" name="txtPrice">
+    <br>
+    Picture
+    <input type="text" name="txtPicture">
+    <br>
+    <input type="submit" value="Insert">
+    </form>
+  </div>
+  <div class="row row-cols-md-4">
+  {{#each data}}
+  <div class="col mb-4">
+    <div class="card" >
+      <img src="{{picture}}" class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{price}}</p>
+        <a href="/edit?id={{_id}}"> Edit </a>
+        <a href="/delete?id={{_id}}">Delete</a>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
+</div>
+
+    
+
+    
+</body>
+</html>
